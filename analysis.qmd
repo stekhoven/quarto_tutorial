@@ -1,0 +1,69 @@
+---
+title: "Data Analysis"
+---
+
+Load the required R packages:
+
+```{r}
+#| output: false
+library(babynames)
+library(knitr)
+library(dplyr)
+library(ggplot2)
+```
+
+Let's have a look at the first couple of rows in the data:
+
+```{r}
+head(babynames) |> kable()
+```
+
+Let's create functions to visualise some of the data according to sex:
+```{r}
+#| code-fold: true
+get_most_frequent <- function(babynames, select_sex, from = 1950) {
+  most_freq <- babynames |>
+    filter(sex == select_sex, year > from) |>
+    group_by(name) |>
+    summarise(average = mean(prop)) |>
+    arrange(desc(average))
+    
+  return(list(
+    babynames = babynames,
+    most_frequent = most_freq,
+    sex = select_sex,
+    from = from))
+}
+
+plot_top <- function(x, top = 10) {
+  topx <- x$most_frequent$name[1:top]
+  
+  p <- x$babynames |>
+    filter(name %in% topx, sex == x$sex, year > x$from) |>
+    ggplot(aes(x = year, y = prop, color = name)) +
+    geom_line() +
+    scale_color_brewer(palette = "Paired") +
+    theme_classic()
+  
+  return(p)
+}
+```
+
+We are going to look at the distribution of baby names over time. In @fig-girls we can see the ten most frequent names for girls. Likewise in @fig-boys, we can see the same of boys.
+
+```{r}
+#| label: fig-girls
+#| echo: false
+#| fig-cap: Distribution of the top ten female names over time.
+get_most_frequent(babynames, select_sex = "F") |>
+  plot_top()
+```
+
+```{r}
+#| label: fig-boys
+#| echo: false
+#| fig-cap: Distribution of the top ten male names over time.
+get_most_frequent(babynames, select_sex = "M") |>
+  plot_top()
+```
+

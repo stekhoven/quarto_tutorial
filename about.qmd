@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+This website was generated as part of the [BC]2 workshop: Make your research FAIRer. [Link](https://sib-swiss.github.io/reproducible-analysis-training/) to the course website.

@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+quarto_tutorial.Rproj
+/.quarto/
+_site/
