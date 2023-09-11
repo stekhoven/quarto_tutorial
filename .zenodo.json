@@ -1,0 +1,23 @@
+{
+  "title": "Analysis of babynames",
+  "upload_type": "publication",
+  "publication_type": "other",
+  "keywords": [
+    "R",
+    "quarto",
+    "tutorial",
+    "lorem"
+  ],
+  "creators": [
+    {
+      "name": "Daniel J. Stekhoven",
+      "affiliation": "ETH Zurich",
+      "orcid": "0000-0003-3163-3161"
+    }
+    {
+      "name": "Geert van Geest",
+      "affiliation": "SIB Swiss Institute of Bioinformatics",
+      "orcid": "0000-0002-1561-078X"
+    } 
+  ]
+}

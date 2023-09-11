@@ -2,6 +2,8 @@
 title: "Quarto tutorial: baby names"
 ---
 
+[![DOI](https://zenodo.org/badge/690009663.svg)](https://zenodo.org/badge/latestdoi/690009663){fig-align="left"}
+
 In this project we aim to visualize the trends of the most frequently used babynames from 1880 to 2017 in the United States. We do this by:
 
 -   Understanding the different columns of the data set
